@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 
 
 class categories(models.Model):
-    tittle = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 class product(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -14,7 +17,6 @@ class product(models.Model):
 
     def __str__(self):
         return self.title
-    
 
 class UserProfile(models.Model):
     TYPE=(
