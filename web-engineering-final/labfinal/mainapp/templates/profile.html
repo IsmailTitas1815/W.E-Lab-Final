@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% csrf_token %}
+
+<div class="global-container p-2">
+  <div class="">
+
+    {% if profile.image.url != "" %}
+    <img src="{{profile.image.url}}" style="width:350px; height: 350px" class="rounded mx-auto d-block"></img>
+    {% else %}
+    <img src="" class="rounded mx-auto d-block"></img>
+    
+    {% endif %}
+    <div class="card-text pt-5">
+      <h4>Name : {{ user.first_name}} {{ user.last_name}}</h4>
+      <h4>Username : {{user.username}}</h4>
+      <h4>Age : 23 </h4>
+      <h4>Gender : Male </h4>
+      <h4>Contact : 01684806728</h4>
+      <h4>Role : User</h4>
+      <h2>
+        <a href="{% url 'profileedit' %}">
+        Edit Profile
+      </a>
+      </h2>
+
+
+    </div>
+  </div>
+</div>
+{% endblock %}
